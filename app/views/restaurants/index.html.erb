@@ -1,0 +1,40 @@
+<% provide(:title, 'Directory') %>
+<h1>Listing Restaurants</h1>
+<table table align="center", table class="sortable">
+  <thead>
+    <script src="sorttable.js"></script>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zipcode</th>
+      <th>Phone</th>
+      <th colspan="2", class="sorttable_nosort"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurant.order("LOWER(name)").each  do |rest| %>
+      <tr>
+        <td><%= rest.name %></td>
+        <td><%= rest.address %></td>
+        <td><%= rest.description %></td>
+        <td><%= rest.city %></td>
+        <td><%= rest.state %></td>
+        <td><%= rest.zipcode %></td>
+        <td><%= rest.phone %></td>
+        <td><%= link_to 'Show', rest %></td>
+        <td><%= link_to 'Edit', edit_restaurant_path(rest)%></td>
+        <td><%= link_to 'Delete', rest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <div align="center">
+    <p>
+      <%= button_to "New Restaurant", new_restaurant_path, :method => "get" %>
+    </p>
+  </div>
+</table>
+
