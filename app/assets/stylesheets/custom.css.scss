@@ -24,12 +24,24 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 
 th, td {
     overflow: auto;
-    width: 100px;
+    width: 110px;
+}
+
+input {
+  text-align: center;
+  width: 200px; 
 }
 
 textarea {
+  width: 200px; 
   resize: vertical;
 }
+
+/*.actions {
+  input{
+    background-color: blue;
+  }
+}*/
 
 .field_with_errors{
   display: inline;

@@ -7,4 +7,5 @@ class Restaurant < ActiveRecord::Base
   validates :name, uniqueness: { case_sensitive: false }
   validates :description, length: { maximum: 300}
   validates :state, length: { maximum: 2}
+  belongs_to :user
 end

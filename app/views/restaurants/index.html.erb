@@ -2,7 +2,6 @@
 <h1>Listing Restaurants</h1>
 <table table align="center", table class="sortable">
   <thead>
-    <script src="sorttable.js"></script>
     <tr>
       <th>Name</th>
       <th>Address</th>
@@ -25,16 +24,18 @@
         <td><%= rest.state %></td>
         <td><%= rest.zipcode %></td>
         <td><%= rest.phone %></td>
-        <td><%= link_to 'Show', rest %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(rest)%></td>
-        <td><%= link_to 'Delete', rest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td align="right"><%= link_to 'Show', rest, class:"btn btn-primary btn-xs"  %></td>
+        <% if current_user.id == rest.user_id%> 
+            <td align="center"><%= link_to 'Edit', edit_restaurant_path(rest), class:"btn btn-primary btn-xs" %></td>
+            <td><%= link_to 'Delete', rest, class:"btn btn-primary btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
   <div align="center">
     <p>
-      <%= button_to "New Restaurant", new_restaurant_path, :method => "get" %>
+      <%= link_to "Add a New Restaurant", new_restaurant_path, class:"btn btn-default btn-primary" %>
     </p>
   </div>
 </table>
-
+<script src="sorttable.js"></script>
