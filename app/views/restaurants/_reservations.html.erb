@@ -1,0 +1,7 @@
+<h3>Would you like to make a reservation?</h3>
+<%= form_for(@reservation) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.date_field :name %>
+  </div>
+<% end %>

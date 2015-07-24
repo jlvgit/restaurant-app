@@ -8,4 +8,5 @@ class Restaurant < ActiveRecord::Base
   validates :description, length: { maximum: 300}
   validates :state, length: { maximum: 2}
   belongs_to :user
+  has_many :reservation
 end
