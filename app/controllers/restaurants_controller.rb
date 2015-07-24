@@ -5,7 +5,6 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.all
   end
 
-
   def new
     @restaurant = Restaurant.new
   end

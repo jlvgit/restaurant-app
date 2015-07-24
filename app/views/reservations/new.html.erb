@@ -1,0 +1,16 @@
+<h1>Make a reservation</h1>
+  <%= form_for(@reservation) do |f| %>
+  <div class="field">
+    <%= f.label :email, "E-mail" %><br>(in case we need to contact you)<br>
+    <%= f.text_field :email %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label "Date and Time." %><br>
+    <%= select_datetime Time.now, ampm:true %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
