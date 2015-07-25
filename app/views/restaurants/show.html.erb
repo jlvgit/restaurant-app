@@ -8,14 +8,17 @@
   <%= @restaurant.address %><br>
   <%= "#{@restaurant.city}, #{@restaurant.state}, #{@restaurant.zipcode}" %><br>
 </p>
+
 <p>
   <strong>Phone:</strong>
   <%= @restaurant.phone %>
 </p>
+
 <p>
   <strong>Description:</strong>
   <%= @restaurant.description %>
 </p>
+
 <p>
 <img src="https://maps.googleapis.com/maps/api/staticmap?center=
     <%="#{@restaurant.address}, #{@restaurant.city}, #{@restaurant.state},
@@ -23,10 +26,13 @@
     <%="#{@restaurant.address}, #{@restaurant.city}, #{@restaurant.state},
     #{@restaurant.zipcode}" %>" >
 </p>
-<% if current_user.id == @restaurant.user_id%> 
+
+<div>
+  <% if current_user.id != @restaurant.user_id%> 
+    <%= link_to "Click here to make a reservation.", new_reservation_path, class:"h3" %><br>
+  <% else %>
     <td align="center"><%= link_to 'Edit', edit_restaurant_path(@restaurant), class:"btn btn-primary btn-xs" %></td>
     <td><%= link_to 'Delete', @restaurant, class:"btn btn-primary btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
-<div> <%= link_to "Click here to make a reservation.", new_reservation_path, class:"h3" %></div>
-<br>
 <%= link_to 'Back', restaurants_path, class:"btn btn-primary btn-xs" %>
+</div>

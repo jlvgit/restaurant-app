@@ -2,7 +2,10 @@
   <div class="container">
     <nav>
       <ul class="nav navbar-nav navbar-left">
-        <%= link_to "Home", root_path, :class => 'navbar-link'  %>
+        <%= link_to "Home", root_path, :class => 'navbar-link'  %> 
+        <% if user_signed_in? %>
+          | <%= link_to "My Reservations", reservations_path, :class => 'navbar-link' %>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
