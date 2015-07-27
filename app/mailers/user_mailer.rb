@@ -1,13 +1,10 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'notifications@restaurant-app.com'
  
   def welcome_email(user)
+    # @owner = Restaurant.find_by(params[:user_id])
     @user = user
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: @user.email, subject: 'A new reservation has been made!')
   end
 
-  def reservation_email
-    @owner = Restaurant.find_by(params[:user_id])
-  end
 end

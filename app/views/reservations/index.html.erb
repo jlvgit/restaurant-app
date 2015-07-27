@@ -1,1 +1,34 @@
-<h1>Show Page </h1>
+<% provide(:title, 'My Reservations') %>
+<h1>Your Reservations</h1>
+<table table align="center">
+  <thead>
+    <tr>
+      <th>Restaurant</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Number of Guests</th>
+      <th>Special Instructions</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each  do |rest| %>
+      <tr>
+        <td><%= rest.restaurant.name %></td>
+        <td><%= rest.restaurant.address %></td>
+        <td><%= rest.restaurant.phone %></td>
+        <td><%= rest.date %></td>
+        <td><%= rest.time %></td>
+        <td><%= rest.guests %></td> 
+        <td align="right"><%= link_to 'Edit', edit_restaurant_path(rest), class:"btn btn-primary btn-xs" %></td>
+        <td align="right"><%= link_to 'Delete', rest, class:"btn btn-primary btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <div align="center">
+  </div>
+</table>
+

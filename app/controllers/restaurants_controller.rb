@@ -32,7 +32,12 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path   
   end
 
+  def show
+    @reservation = Reservation.new
+  end
+
 private
+
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
