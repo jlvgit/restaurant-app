@@ -25,10 +25,12 @@
         <td><%= rest.zipcode %></td>
         <td><%= rest.phone %></td>
         <td align="right"><%= link_to 'Show', rest, class:"btn btn-primary btn-xs"  %></td>
-        <% if current_user.id == rest.user_id%> 
-            <td align="center"><%= link_to 'Edit', edit_restaurant_path(rest), class:"btn btn-primary btn-xs" %></td>
-            <td><%= link_to 'Delete', rest, class:"btn btn-primary btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <% if current_user %>
+          <% if current_user.id == rest.user_id%> 
+              <td align="center"><%= link_to 'Edit', edit_restaurant_path(rest), class:"btn btn-primary btn-xs" %></td>
+              <td><%= link_to 'Delete', rest, class:"btn btn-primary btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>  
       </tr>
     <% end %>
   </tbody>

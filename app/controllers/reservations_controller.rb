@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
-    UserMailer.welcome_email(@reservation.restaurant.user).deliver_later
+    UserMailer.welcome_email(@reservation.restaurant.user, @reservation).deliver_later
     if @reservation.save
       redirect_to restaurants_path, alert: "Reservation Sent!"
     else

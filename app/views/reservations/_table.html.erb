@@ -1,0 +1,15 @@
+        current_user.reservations
+        current_user.restaurants.reservations
+
+ <tbody>
+    <% @reservations.each  do |rest| %>
+      <tr>
+        <td><%= rest.restaurant.name %></td>
+        <td><%= rest.restaurant.address %></td>
+        <td><%= rest.restaurant.phone %></td>
+        <td><%= rest.date %></td>
+        <td><%= rest.time %></td>
+        <td><%= rest.guests %></td> 
+      <% end %>
+    </tr>
+</tbody>
