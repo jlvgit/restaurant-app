@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'ratyrate'
 gem 'devise'
 gem 'bootstrap-sass' 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

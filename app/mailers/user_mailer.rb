@@ -1,10 +1,9 @@
 class UserMailer < ApplicationMailer
   default from: 'notifications@restaurant-app.com'
  
-  def welcome_email(user, reservation)
+  def welcome_email(user)
     @user = user
-    @reservation = reservation
-    mail(to: @user.email, subject: 'A new reservation has been made!')
+    mail(to: @user, subject: 'A new reservation has been made!')
   end
 
 end

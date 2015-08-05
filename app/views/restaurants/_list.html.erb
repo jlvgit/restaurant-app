@@ -1,0 +1,23 @@
+<div id="list" data-no-turbolink>
+  <tbody>
+    <% @restaurant.order("LOWER(name)").each  do |rest| %>
+      <tr>
+        <td><%= rest.name %></td>
+        <td><%= rest.address %></td>
+        <td><%= rest.description %></td>
+        <td><%= rest.city %></td>
+        <td><%= rest.state %></td>
+        <td><%= rest.zipcode %></td>
+        <td><%= rest.phone %></td>
+        <td><%= rating_for rest, "overall", disable_after_rate: false, cancel_place: 'right' %></td>
+        <td align="right"><%= link_to 'Show', rest, class:"btn btn-primary btn-xs"  %></td>
+        <% if current_user %>
+          <% if current_user.id == rest.owner_id%> 
+              <td align="center"><%= link_to 'Edit', edit_restaurant_path(rest), class:"btn btn-primary btn-xs" %></td>
+              <td><%= link_to 'Delete', rest, class:"btn btn-primary btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>  
+      </tr>
+    <% end %>
+  </tbody>
+</div>

@@ -8,23 +8,24 @@
       <th>Phone</th>
       <th>Date</th>
       <th>Time</th>
-      <th>Number of Guests</th>
+      <th>Guests</th>
       <th>Special Instructions</th>
       <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @reservations.each  do |rest| %>
+    <% @reservations.each  do |res| %>
       <tr>
-        <td><%= rest.restaurant.name %></td>
-        <td><%= rest.restaurant.address %></td>
-        <td><%= rest.restaurant.phone %></td>
-        <td><%= rest.date %></td>
-        <td><%= rest.time %></td>
-        <td><%= rest.guests %></td> 
-        <td align="right"><%= link_to 'Edit', edit_restaurant_path(rest), class:"btn btn-primary btn-xs" %></td>
-        <td align="right"><%= link_to 'Delete', rest, class:"btn btn-primary btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= res.restaurant.name %></td>
+        <td><%= res.restaurant.address %></td>
+        <td><%= res.restaurant.phone %></td>
+        <td><%= res.date.strftime("%m/%d/%Y") %></td>
+        <td><%= res.time.strftime("%I:%M%p") %></td>
+        <td><%= res.guests %></td> 
+        <td><%= res.comment %></td> 
+        <td align="right"><%= link_to 'Edit', edit_restaurant_path(res), class:"btn btn-primary btn-xs" %></td>
+        <td align="right"><%= link_to 'Delete', res, class:"btn btn-primary btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

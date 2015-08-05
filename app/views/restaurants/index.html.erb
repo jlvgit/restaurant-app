@@ -10,34 +10,17 @@
       <th>State</th>
       <th>Zipcode</th>
       <th>Phone</th>
+      <th>Rating</th>
       <th colspan="2"></th>
     </tr>
   </thead>
-
-  <tbody>
-    <% @restaurant.order("LOWER(name)").each  do |rest| %>
-      <tr>
-        <td><%= rest.name %></td>
-        <td><%= rest.address %></td>
-        <td><%= rest.description %></td>
-        <td><%= rest.city %></td>
-        <td><%= rest.state %></td>
-        <td><%= rest.zipcode %></td>
-        <td><%= rest.phone %></td>
-        <td align="right"><%= link_to 'Show', rest, class:"btn btn-primary btn-xs"  %></td>
-        <% if current_user %>
-          <% if current_user.id == rest.user_id%> 
-              <td align="center"><%= link_to 'Edit', edit_restaurant_path(rest), class:"btn btn-primary btn-xs" %></td>
-              <td><%= link_to 'Delete', rest, class:"btn btn-primary btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        <% end %>  
-      </tr>
-    <% end %>
-  </tbody>
+  <%= render 'list' %>
+  <% if current_user %>
   <div align="center">
     <p>
       <%= link_to "Add a New Restaurant", new_restaurant_path, class:"btn btn-default btn-primary" %>
     </p>
   </div>
+  <% end %> 
 </table>
 <script src="sorttable.js"></script>

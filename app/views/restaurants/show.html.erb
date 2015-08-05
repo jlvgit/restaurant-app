@@ -29,7 +29,7 @@
 
 <div>
 <% if current_user %>
-  <% if current_user.id == @restaurant.user_id%> <br>
+  <% if current_user.id == @restaurant.owner_id%> <br>
       <td align="center"><%= link_to 'Edit', edit_restaurant_path(@restaurant), class:"btn btn-primary btn-xs" %></td>
       <td><%= link_to 'Delete', @restaurant, class:"btn btn-primary btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
   <% end %>

@@ -9,4 +9,5 @@ class Restaurant < ActiveRecord::Base
   validates :state, length: { maximum: 2}
   belongs_to :user
   has_many :reservations, dependent: :destroy
+  ratyrate_rateable 'overall', 'food', 'value', 'service'
 end
