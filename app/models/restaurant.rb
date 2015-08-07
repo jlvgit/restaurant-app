@@ -10,4 +10,5 @@ class Restaurant < ActiveRecord::Base
   belongs_to :user
   has_many :reservations, dependent: :destroy
   ratyrate_rateable 'overall', 'food', 'value', 'service'
+  has_and_belongs_to_many :categories, join_table: "restaurants_categories"
 end

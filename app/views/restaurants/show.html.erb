@@ -20,13 +20,18 @@
 </p>
 
 <p>
+<% if @restaurant.categories.any?  %>
+  <strong>Categories:</strong>
+  <%= @restaurant.categories.map{|c| c.name}.join ", " %>
+  <% end %>
+</p>
+<p>
 <img src="https://maps.googleapis.com/maps/api/staticmap?center=
     <%="#{@restaurant.address}, #{@restaurant.city}, #{@restaurant.state},
     #{@restaurant.zipcode}" %>&size=400x400&zoom=16&markers=color:red|
     <%="#{@restaurant.address}, #{@restaurant.city}, #{@restaurant.state},
     #{@restaurant.zipcode}" %>" >
 </p>
-
 <div>
 <% if current_user %>
   <% if current_user.id == @restaurant.owner_id%> <br>

@@ -7,9 +7,11 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+
   end
 
   def update
+    restaurant_params[:restaurant][:category_ids] ||= []
     if @restaurant.update(restaurant_params)
       redirect_to restaurants_path
     else
@@ -44,6 +46,7 @@ private
 
   def restaurant_params
     params.require(:restaurant).permit(:id, :name, :description,
-                  :address, :city, :zipcode, :state, :phone)
+                  :address, :city, :zipcode, :state, :phone,
+                  { :category_ids => []})
   end
 end

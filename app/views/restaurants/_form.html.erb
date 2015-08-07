@@ -35,6 +35,13 @@
     <%= f.phone_field :phone %>
   </div>
   <br>
+  <h1>Categories</h1>
+  <div>
+    <% for category in Category.all() %>
+      <%= check_box_tag "restaurant[category_ids][]", category.id, @restaurant.categories.include?(category) %>
+      <%= category.name %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
