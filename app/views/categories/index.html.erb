@@ -1,0 +1,7 @@
+<h1>Categories</h1>
+<br>
+<% @categories.order("LOWER(name)").each do |category| %>
+  <%= link_to category.name, category, class:"btn btn-default" %>
+<% end %>
+<br><br>
+<%= link_to 'Back', restaurants_path, class:"btn btn-primary btn-xs" %>
